@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var getAnswer = function (){
-  return prompt("Enter a sentence");
+  return prompt("Enter_a_sentence");
   };
   var sentence = getAnswer();
   //console.log(getAnswer());
@@ -22,9 +22,18 @@ $(document).ready(function(){
 
 
  var conCat = function(){
-   console.log(sentence.concat(reverseLetters()));
+   return (sentence.concat(reverseLetters()));
  };
- conCat();
+
+ var divide = function() {
+    var senlength = parseInt((sentence.length)/2-1);
+    var seven = (sentence[senlength]);
+    console.log(seven.concat(conCat()));
+
+ };
+
+ divide();
+
   // var getAnswer = function (){
   // return prompt("Enter a sentence");
   // };
