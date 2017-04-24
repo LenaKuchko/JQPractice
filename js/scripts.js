@@ -28,11 +28,21 @@ $(document).ready(function(){
  var divide = function() {
     var senlength = parseInt((sentence.length)/2-1);
     var seven = (sentence[senlength]);
-    console.log(seven.concat(conCat()));
+    return (seven.concat(conCat()));
 
  };
+ var backward = function() {
+  var splitString = divide().split("");
+  var reverseStr = splitString.reverse();
+  var joinStr = reverseStr.join("");
+  console.log(joinStr);
+};
 
- divide();
+backward();
+
+  $("h1").click(function() {
+    alert("Greetings");
+  });
 
   // var getAnswer = function (){
   // return prompt("Enter a sentence");
