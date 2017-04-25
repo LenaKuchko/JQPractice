@@ -1,48 +1,56 @@
 $(document).ready(function(){
   var getAnswer = function (){
-  return prompt("Enter_a_sentence");
+  return prompt("Enter a sentence");
   };
-  var sentence = getAnswer();
-  //console.log(getAnswer());
-  //console.log(sentence);
 
-  var getLetters = function(){
-    var letters = sentence[0] + sentence[sentence.length-1];
+  var answer = getAnswer();
+//console.log(answer);
+  var getLetters = function(str){                     //takes the first and the last letters and make them UpperCase
+    var letters = str[0] + str[str.length-1];
     return letters.toUpperCase();
-    //console.log(letters);
-  };
-  var reverseLetters = function(){
-    var splitString = getLetters().split("");
-    var reverseStr = splitString.reverse();
-    var joinStr = reverseStr.join("");
-    //console.log(joinStr);
-    return joinStr;
   };
 
+  var reverseLetters = function(str){                 //reverses the string
+    return str.split("").reverse().join("");
+  };
 
+  var concantination = function(answer){
+   return (answer.concat(reverseLetters(getLetters(answer)))); //concat input string with reversed part
+  };
 
- var conCat = function(){
-   return (sentence.concat(reverseLetters()));
- };
+  var findLetterPosition = function(str){
+   return str.charAt((parseInt(str.length/2)));
+  };
+  var finalResult = (findLetterPosition(answer) + concantination(answer));
 
- var divide = function() {
-    var senlength = parseInt((sentence.length)/2-1);
-    var seven = (sentence[senlength]);
-    return (seven.concat(conCat()));
-
- };
- var backward = function() {
-  var splitString = divide().split("");
-  var reverseStr = splitString.reverse();
-  var joinStr = reverseStr.join("");
-  console.log(joinStr);
-};
-
-backward();
-
-  $("h1").click(function() {
-    alert("Greetings");
+  $("h1").click(function(){
+    alert (answer);
   });
+  
+  $("h2").click(function(){
+    alert (finalResult);
+  });
+
+//alert (reverseLetters(finalResult));
+
+//  var divide = function() {
+//     var senlength = parseInt((sentence.length)/2-1);
+//     var seven = (sentence[senlength]);
+//     return (seven.concat(conCat()));
+//
+//  };
+//  var backward = function() {
+//   var splitString = divide().split("");
+//   var reverseStr = splitString.reverse();
+//   var joinStr = reverseStr.join("");
+//   console.log(joinStr);
+// };
+//
+// backward();
+//
+//   $("h1").click(function() {
+//     alert("Greetings");
+//   });
 
   // var getAnswer = function (){
   // return prompt("Enter a sentence");
